@@ -29,6 +29,18 @@ function update(time) {
     document.documentElement.style.setProperty("--hue", hue + delta * 0.01)
 
     if (isLose()) handleLose()
+    //game over if score is 10
+    if (localStorage.getItem("playerScore") == 10 || localStorage.getItem("computerScore") == 10) {
+      if (localStorage.getItem("playerScore") == 10) {
+        alert("You won!")
+      } else {
+        alert("You lost!")
+      }
+      localStorage.setItem("playerScore", 0)
+      localStorage.setItem("computerScore", 0)
+      playerScoreElem.textContent = 0
+      computerScoreElem.textContent = 0
+    }
   }
 
   lastTime = time
