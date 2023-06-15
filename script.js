@@ -7,15 +7,12 @@ const computerPaddle = new Paddle(document.getElementById("computer-paddle"))
 const playerScoreElem = document.getElementById("player-score")
 const computerScoreElem = document.getElementById("computer-score")
 
+const playerName = localStorage.getItem("playerName")
+//show player name 
+document.getElementById("player-name").innerHTML = playerName
 let lastTime
 
 //to start game
-let startButton = document.getElementById("start-button");
-startButton.addEventListener("click", () => {
-    let name = document.getElementById("player-name").value;
-    localStorage.setItem("playerName", name);
-    window.location.href = "game.html";
-});
 
 function update(time) {
   if (lastTime != null) {
@@ -56,8 +53,10 @@ function handleLose() {
   const rect = ball.rect()
   if (rect.right >= window.innerWidth) {
     playerScoreElem.textContent = parseInt(playerScoreElem.textContent) + 1
+    localStorage.setItem("playerScore", playerScoreElem.textContent)
   } else {
     computerScoreElem.textContent = parseInt(computerScoreElem.textContent) + 1
+    localStorage.setItem("computerScore", computerScoreElem.textContent)
   }
   ball.reset()
   computerPaddle.reset()

@@ -23,7 +23,7 @@
     top: calc(var(--position) * 1vh);
     transform: translateY(-50%);
     width: 1vh;
-    height: 10vh;
+    height: 12vh;
   }
   
   .paddle.left {
@@ -69,4 +69,18 @@
     border-right: .5vh solid var(--foreground-color);
   }
   
+  .head {
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 7vh;
+    color: var(--foreground-color);
+  }
   
+  .head > * {
+    flex-grow: 1;
+    flex-basis: 0;
+    padding: 0 2vh;
+    margin: 1vh 0;
+    opacity: .5;
+  }
