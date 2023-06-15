@@ -7,6 +7,9 @@ const computerPaddle = new Paddle(document.getElementById("computer-paddle"))
 const playerScoreElem = document.getElementById("player-score")
 const computerScoreElem = document.getElementById("computer-score")
 
+const playerName = localStorage.getItem("playerName")
+//show player name 
+document.getElementById("player-name").innerHTML = playerName
 let lastTime
 
 //to start game
